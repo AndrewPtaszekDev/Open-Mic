@@ -1,0 +1,19 @@
+.home {
+    margin-left: 5%;
+    margin-right: 5%;
+    /*display: compact;*/
+    /*height: 50vh;             !* Make navbar height 100% of the viewport height (optional if you want full screen centering) *!*/
+    /*gap: 40px;                 !* Adds some space between the buttons *!*/
+}
+
+.border {
+    /*display: inline-block;  !* Ensures the border wraps tightly around the text *!*/
+    padding: 1%;
+    /*padding-top: 12%;          !* Adds some space between the text and the border *!*/
+    /*padding-left: 40%;*/
+    /*padding-right: 40%;*/
+    margin-bottom: 10px;
+    border: 2px solid #007BFF;  /* Creates a solid border */
+    border-radius: 15px;     /* Optional: rounds the corners */
+    font-size: 18px;        /* Adjust the text size */
+}
