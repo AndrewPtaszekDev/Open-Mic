@@ -27,3 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /backend/tasks/
+/backend/db.sqlite3

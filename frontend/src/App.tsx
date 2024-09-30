@@ -8,12 +8,6 @@ import Home from "./components/HomeComponents/Home";
 import ScrollingBanner from './components/HomeComponents/ScrollingBanner/ScrollingBanner';
 import Admin from "./components/AdminComponents/Admin";
 
-// const Admin: React.FC = () => (
-//     <div>
-//         <h1>Admin Page</h1>
-//    </div>
-// );
-
 const Events: React.FC = () => (
   <div>
     <h1>Events Page</h1>
@@ -21,18 +15,9 @@ const Events: React.FC = () => (
 );
 
 const App: React.FC = () => {
-  // const [message, setMessage] = useState<string>('');
-  //
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     // const response = await axios.get('http://localhost:8000/api/tasks/');
-  //
-  //     setMessage(response.data.message);
-  //   };
-  //
-  //   fetchData();
-  // }, []);
-  const names = [ 'Current Dev Team', 'Andrew Ptaszek', 'Zane Wolf', 'Colin Sadowitz', 'Michael Carlson'];
+  const names = [ 'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson',
+  'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson',
+  'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson'];
   // Names for banner stored here
 
   return (
@@ -45,7 +30,7 @@ const App: React.FC = () => {
          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin-page" element={<Admin />} />
-           <Route path="/events" element={<Events />} />
+            <Route path="/events" element={<Events />} />
           </Routes>
         </div>
       </div>

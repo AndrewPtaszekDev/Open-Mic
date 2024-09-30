@@ -16,7 +16,7 @@
 .banner-content {
      display: inline-block;
      white-space: nowrap; /* Keeps the text in one line */
-     animation: scroll-right 10s linear infinite; /* Smooth infinite scroll */
+     animation: scroll-right 60s linear infinite; /* Smooth infinite scroll */
 }
 
 @keyframes scroll-right {
