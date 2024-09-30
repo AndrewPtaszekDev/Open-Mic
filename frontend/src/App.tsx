@@ -6,13 +6,13 @@ import './App.css';
 import SiteTitle from "./components/NavBarComponents/SiteTitle";
 import Home from "./components/HomeComponents/Home";
 import ScrollingBanner from './components/HomeComponents/ScrollingBanner/ScrollingBanner';
+import Admin from "./components/AdminComponents/Admin";
 
-
-const Admin: React.FC = () => (
-    <div>
-        <h1>Admin Page</h1>
-    </div>
-);
+// const Admin: React.FC = () => (
+//     <div>
+//         <h1>Admin Page</h1>
+//    </div>
+// );
 
 const Events: React.FC = () => (
   <div>

@@ -1,0 +1,14 @@
+.admin {
+	margin-left: 30%;
+	margin-right: 30%;
+	text-align: center;
+	border: 2px solid #007BFF;
+	border-radius: 15px;
+}
+
+.admin_header {
+}
+
+.sign_in_form {
+	margin-bottom: 20px;
+}
