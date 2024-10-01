@@ -1,8 +1,0 @@
-.navbar {
-    display: flex;            /* Enables flexbox layout */
-    justify-content: center;   /* Centers items horizontally */
-    align-items: center;       /* Centers items vertically */
-    height: 10vh;             /* Make navbar height 100% of the viewport height (optional if you want full screen centering) */
-    gap: 40px;                 /* Adds some space between the buttons */
-}
-
