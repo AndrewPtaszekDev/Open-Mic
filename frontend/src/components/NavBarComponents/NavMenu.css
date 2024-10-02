@@ -4,7 +4,7 @@
     bottom: 20px; /* Adjust the position as needed */
     left: 50%;
     transform: translateX(-50%);
-    background-image: linear-gradient(to bottom right, red, yellow);
+    background-color: #1423E7;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -13,6 +13,7 @@
     transition: all 0.5s ease; /* Transition for moving and fading */
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    font-family: "arial black", sans-serif;
 }
 
 /* Class to move the button below the screen */
