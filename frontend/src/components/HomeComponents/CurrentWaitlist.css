@@ -2,7 +2,6 @@
   height: 30vh;  /* Set a fixed height for the container */
   width: 100%;   /* Optionally, set a fixed width */
   overflow-y: auto;  /* Enable vertical scrolling */
-  border: 1px solid #c4c4c4;  /* Optional: add a border for visual clarity */
   padding: 10px;
   box-sizing: border-box;
 }
@@ -16,6 +15,5 @@
 .list-item {
   padding: 8px;
   margin-bottom: 5px;
-  background-color: #eae4e4;
   border-radius: 4px;
 }
