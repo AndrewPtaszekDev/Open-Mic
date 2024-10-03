@@ -20,7 +20,7 @@ def create_entry(request):
 
 @api_view(['GET'])
 def get_all_waitlists(request):
-    waitlist_data = WaitlistModel.objects.all()
+    waitlist_data = WaitlistModel.objects.all().order_by('order')
     # Serialize the data into a list of dictionaries
     data = [
         {"name": data_entry.name, "song": data_entry.song}
@@ -77,9 +77,16 @@ def delete_entry(request):
 
 @api_view(["PUT"])
 def clear_db(request):
-    return
+    WaitlistModel.objects.all().delete()
+    if WaitlistModel.objects.count() > 0:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    return Response(status=status.HTTP_200_OK)
 
 @api_view(["PUT"])
 def pop(request):
-    return
+    if WaitlistModel.objects.count() == 0:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    WaitlistModel.objects.all().order_by('order').first().delete()
+    return Response(status=status.HTTP_200_OK)
 
