@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import SiteTitle from "./components/NavBarComponents/SiteTitle";
 import Home from "./components/HomeComponents/Home";
-import ScrollingBanner from './components/HomeComponents/ScrollingBanner/ScrollingBanner';
+import ScrollingBanner from './components/ScrollingBanner/ScrollingBanner';
 import Admin from "./components/AdminComponents/Admin";
 import NavMenu from './components/NavBarComponents/NavMenu';
 
@@ -30,16 +30,16 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div>
+        <div/>
         {/* Scrolling Banner */}
-        <ScrollingBanner names={names} />
+       <ScrollingBanner names={names} />
 
         {/* Main Content */}
-        <div style={{ marginTop: '33px' }}>
-          <SiteTitle />
-          
+        <div>
           {/* Off-Canvas NavMenu */}
           <NavMenu />
+
+          <SiteTitle />
           
           {/* Routes for different pages */}
           <Routes>
@@ -48,7 +48,6 @@ const App: React.FC = () => {
           <Route path="/events" element={<Events />} />
 		        <Route path="/admin-page" element={<Admin />} />
           </Routes>
-        </div>
       </div>
     </Router>
   );
