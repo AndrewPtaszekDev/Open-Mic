@@ -1,7 +1,27 @@
+.upcoming-song {
+    background-color: #f3f3f3; /* Light background for the song container */
+    border-radius: 10px; /* Rounded corners for the container */
+    padding: 15px; /* Padding inside the container */
+    margin: 10px auto; /* Centering the component and adding spacing */
+    max-width: 400px; /* Optional: limit the width of the component */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    text-align: center; /* Center-align the text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.upcoming-song:hover {
+    transform: translateY(-5px); /* Slight upward movement on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensified shadow on hover */
+}
+
 .upcoming-fullname {
-    font-size: 30px;
+    font-size: 1.5em; /* Larger font for the full name */
+    font-weight: bold; /* Bold styling for emphasis */
+    color: #333; /* Darker color for the text */
+    margin-bottom: 10px; /* Spacing between full name and song name */
 }
 
 .upcoming-songname {
-    font-size: 20px;    
+    font-size: 1.2em; /* Slightly smaller font for the song name */
+    color: #666; /* Lighter gray color for contrast */
 }
