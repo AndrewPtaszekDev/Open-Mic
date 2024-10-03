@@ -1,16 +1,17 @@
 /* ScrollingBanner.css */
 
 .banner-container {
-    position: fixed;
-    top: 0;
+    position: relative;
+    bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
     color: white;
+    font-family: Arial Black;
     overflow: hidden;
-    padding: 9px 0;
+    padding: 3px 0;
     z-index: 1000;
     height: 20px; /* Set a fixed height for the banner */
+    font-size: 10px;
 }
 
 .banner-content {
@@ -30,6 +31,6 @@
 
 /* Additional styles to space out the names */
 .name {
-    margin: 0 15px; /* Add margin for spacing between names */
+    margin: 0 14px; /* Add margin for spacing between names */
     display: inline-block; /* Ensure span acts like an inline-block */
 }

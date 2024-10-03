@@ -1,19 +1,16 @@
 .site-title {
-    padding: 35px;           /* Add some padding */
-    margin: 0 auto;          /* Center element horizontally */
-    color: #1423E7;        /* Text color */
-    border: none;
-    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 left;          /* Center element horizontally */
+    color: #e7148c;        /* Text color */
     cursor: pointer;         /* Flexbox properties for centering */
     display: flex;           /* Enable flexbox */
-    justify-content: center; /* Centers content horizontally */
-    align-items: center;     /* Centers content vertically */
+    left: 0;
     height: 10vh;            /* Optional: Adjust height for vertical centering */
     gap: 20px;               /* Adds space between elements (if any) */
 }
 
 .site-title-text {
-    font-size: 55px;
+    font-size: 35px;
     font-family: "Arial Black", sans-serif;
 }
 

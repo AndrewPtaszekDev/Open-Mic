@@ -1,50 +1,47 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './NavMenu.css';
 
 const NavMenu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isButtonHidden, setIsButtonHidden] = useState(false); // New state for button animation
   const navigate = useNavigate();
+  const location = useLocation(); // Get the current location
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // Function to handle navigation
   const handleNavigation = (path: string) => {
-    setIsButtonHidden(true); // Trigger button hide animation
-    setTimeout(() => {
-      navigate(path); // Navigate after the animation completes
-      toggleMenu();   // Close the menu after navigation
-    }, 500); // Wait for the animation to complete (match CSS animation duration)
+    navigate(path); // Navigate to the specified path
   };
+
+  // Function to check if the current path is active
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <>
-      {/* NavButton to trigger the menu */}
-      <button 
-        className={`nav-button ${isButtonHidden ? 'hide' : ''}`} // Apply animation class based on state
-        onClick={toggleMenu}
-      >
-      Menu
-      </button>
-
-      {/* Off-Canvas Menu */}
-      <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
-        <nav className="menu-nav">
-          <ul>
-            {/* Manually handle navigation */}
-            <li><button onClick={() => handleNavigation('/')}>Home</button></li>
-            <li><button onClick={() => handleNavigation('/events')}>Events</button></li>
-            <li><button onClick={() => handleNavigation('/about')}>About</button></li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* Background overlay (optional for dimming effect) */}
-      {isOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}
-    </>
+    <nav className="nav-menu">
+      <ul className="menu-nav">
+        <li>
+          <button
+            onClick={() => handleNavigation('/')}
+            className={isActive('/') ? 'active' : ''}
+          >
+            Home
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => handleNavigation('/club')}
+            className={isActive('/club') ? 'active' : ''}
+          >
+            Club
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => handleNavigation('/about')}
+            className={isActive('/about') ? 'active' : ''}
+          >
+            About
+          </button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
