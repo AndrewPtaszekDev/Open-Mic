@@ -8,7 +8,7 @@ urlpatterns = [
 
     #For admin access
     path('access/delete_entry/', delete_entry, name = 'delete_entry'),
-    path('access/create_entry_admin', create_entry_admin, name = 'create_entry_admin'),
+    path('access/create_entry_admin/', create_entry_admin, name = 'create_entry_admin'),
     path('access/clear_db/', clear_db, name = 'clear_db'),
     path('access/pop/', pop, name = 'pop'),
 ]
