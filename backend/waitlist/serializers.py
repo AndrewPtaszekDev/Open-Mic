@@ -8,6 +8,12 @@ class WaitlistSerializer(serializers.ModelSerializer):
         model = WaitlistModel
         fields = '__all__'
 
+    def create(self, validated_data):
+        custom_order = self.context.get('custom_order', None)
+        instance = WaitlistModel(**validated_data)
+        instance.save(custom_order=custom_order)  # Call save with the custom_order
+        return instance
+
 class AccessSerializer(serializers.Serializer):
     password = serializers.CharField(max_length = 25)
     name = serializers.CharField(max_length=30)
