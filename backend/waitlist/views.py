@@ -34,29 +34,30 @@ def test(request):
     return HttpResponse(waitlist)
 
 
-# Admin Access:
+# Admin Access --------------------------------------------
 
 @api_view(["POST"])
 def create_entry_admin(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
     if not serializer.data["password"] == admin_password:
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
     entry_json = {
-        "name": serializer.name,
-        "song": serializer.song
+        "name": serializer.validated_data.get('name'),
+        "song": serializer.validated_data.get('song')
     }
     
-    create_above = serializer.delOrAdd
+    order = WaitlistModel.objects.filter(song=serializer.validated_data['delOrAdd']).first().order
+    if order is None:
+         return Response({"error": "No matching song found."}, status=status.HTTP_404_NOT_FOUND)
+    WaitlistModel.increment_orders_from(order)
 
-    entry_serializer = WaitlistModel(entry_json)
+    entry_serializer = WaitlistSerializer(data=entry_json, context={'custom_order': order})
     if not entry_serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    #create entry above here
     entry_serializer.save()
     return Response(status=status.HTTP_201_CREATED)
     
@@ -66,8 +67,10 @@ def delete_entry(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if not serializer.data["password"] == admin_password:
+        return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
-    to_delete = WaitlistModel.objects.filter(song=serializer.delOrAdd)
+    to_delete = WaitlistModel.objects.filter(song=serializer.validated_data['delOrAdd']).first()
 
     if not to_delete.exists():
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -75,15 +78,29 @@ def delete_entry(request):
     to_delete.delete()
     return Response(status=status.HTTP_200_OK)
 
+
 @api_view(["PUT"])
 def clear_db(request):
+    serializer = AccessSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if not serializer.data["password"] == admin_password:
+        return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+    
     WaitlistModel.objects.all().delete()
     if WaitlistModel.objects.count() > 0:
         return Response(status=status.HTTP_400_BAD_REQUEST)
     return Response(status=status.HTTP_200_OK)
 
+
 @api_view(["PUT"])
 def pop(request):
+    serializer = AccessSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if not serializer.data["password"] == admin_password:
+        return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+    
     if WaitlistModel.objects.count() == 0:
         return Response(status=status.HTTP_400_BAD_REQUEST)
     
