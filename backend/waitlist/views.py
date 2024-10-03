@@ -72,7 +72,7 @@ def delete_entry(request):
     
     to_delete = WaitlistModel.objects.filter(song=serializer.validated_data['delOrAdd']).first()
 
-    if not to_delete.exists():
+    if to_delete is None:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     to_delete.delete()
