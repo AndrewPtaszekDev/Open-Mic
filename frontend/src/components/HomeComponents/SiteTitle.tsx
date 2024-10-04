@@ -5,7 +5,7 @@ const SiteTitle: React.FC = () => {
   return (
     <div className="site-title">
         <div className="site-title-text">
-            Welcome to Open Mic Night
+            Welcome to<br />Open Mic Night
         </div>
     </div>
   );

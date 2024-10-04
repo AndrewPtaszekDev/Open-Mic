@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //import NavBar from "./components/NavBarComponents/NavBar";
 import './App.css';
-import SiteTitle from "./components/NavBarComponents/SiteTitle";
+import SiteTitle from "./components/HomeComponents/SiteTitle";
 import Home from "./components/HomeComponents/Home";
 import ScrollingBanner from './components/ScrollingBanner/ScrollingBanner';
 import Admin from "./components/AdminComponents/Admin";
@@ -38,8 +38,6 @@ const App: React.FC = () => {
         <div>
           {/* Off-Canvas NavMenu */}
           <NavMenu />
-
-          <SiteTitle />
           
           {/* Routes for different pages */}
           <Routes>

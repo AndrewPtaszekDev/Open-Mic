@@ -1,34 +1,41 @@
 .song-requests {
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 12px; /* Rounded corners for a polished look */
-    padding: 20px; /* Add spacing inside the container */
-    margin: 20px auto; /* Center the form and add spacing around */
-    max-width: 500px; /* Optional: limit the form width */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-    text-align: center; /* Center-align text and form fields */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
 }
 
-.song-requests div:first-child {
-    font-size: 1.6em; /* Larger font size for the title */
-    font-weight: bold; /* Bold title */
-    margin-bottom: 15px; /* Add space below the title */
-    color: #333; /* Darker color for the title */
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #7640f3;
+}
+
+.input-group {
+    display: flex; /* Flexbox to align label and input horizontally */
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .input-field {
-    margin-bottom: 15px; /* Space between each input field */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure full width for flexibility */
 }
 
 .input-field label {
-    font-weight: bold; /* Bold text for labels */
-    display: block; /* Block to position labels on top */
-    margin-bottom: 5px; /* Spacing between label and input */
+    font-weight: bold;
+    margin-right: 10px; /* Space between label and input */
+    width: 120px; /* Fixed width for label */
 }
 
 .input-field input {
-    width: 100%; /* Full-width input fields */
-    padding: 10px; /* Padding inside input fields */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    flex-grow: 1; /* Input takes up the rest of the space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
