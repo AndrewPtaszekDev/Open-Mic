@@ -35,7 +35,7 @@
 .input-field input {
     flex-grow: 1; /* Input takes up the rest of the space */
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #e1e1e1;
     border-radius: 5px;
     box-sizing: border-box;
 }
