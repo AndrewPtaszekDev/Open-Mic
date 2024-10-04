@@ -8,6 +8,7 @@ import Home from "./components/HomeComponents/Home";
 import ScrollingBanner from './components/ScrollingBanner/ScrollingBanner';
 import Admin from "./components/AdminComponents/Admin";
 import NavMenu from './components/NavBarComponents/NavMenu';
+import Admin_Interface from "./components/AdminComponents/Admin_Interface";
 
 const About: React.FC = () => (
 	<div>
@@ -44,7 +45,8 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
-		        <Route path="/admin-page" element={<Admin />} />
+	  <Route path="/admin-page" element={<Admin />} />
+	  <Route path="/admin-interface" element={<Admin_Interface/>} />
           </Routes>
       </div>
     </Router>
