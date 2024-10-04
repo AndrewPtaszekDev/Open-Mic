@@ -12,6 +12,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    background-color: #eaeaea;
   }
   
   .menu-nav li {
@@ -20,10 +21,10 @@
   
   .menu-nav button {
     background: none;
-    color: white; /* Text color */
+    color: #1d1d1d; /* Text color */
     border: none;
     font-size: 25px;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.7s ease;
     font-family: "Arial Black", sans-serif;
@@ -32,7 +33,6 @@
   
   .menu-nav button.active {
     color: #1423e7; /* Text color for the active item */
-    border-radius: 5px; /* Optional: rounded corners for the active item */
     transition: color 0.7s ease, color 0.7s ease; /* Smooth transition for active state */
   }
   
