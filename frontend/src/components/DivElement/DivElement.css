@@ -1,0 +1,7 @@
+.rounded-div {
+    width: 300px;
+    height: 150px;
+    background-color: #1423e7;  /* Background color for visibility */
+    border-radius: 15px;        /* Rounds corners */
+    padding: 20px;
+}

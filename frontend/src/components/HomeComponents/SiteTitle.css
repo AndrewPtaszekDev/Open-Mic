@@ -1,16 +1,18 @@
 .site-title {
-    padding: 5px 10px;
-    margin: 0 left;          /* Center element horizontally */
-    color: #e7148c;        /* Text color */
-    cursor: pointer;         /* Flexbox properties for centering */
-    display: flex;           /* Enable flexbox */
-    left: 0;
-    height: 10vh;            /* Optional: Adjust height for vertical centering */
-    gap: 20px;               /* Adds space between elements (if any) */
+    padding: 20px 10px;
+    margin: 0 auto;               /* Centers the entire .site-title element horizontally */
+    color: #1423e7;               /* Text color */
+    cursor: pointer;
+    display: flex;                /* Enable flexbox */
+    justify-content: center;      /* Center content horizontally */
+    align-items: center;          /* Center content vertically */
+    height: 10vh;                 /* Adjust height to help with vertical centering */
+    text-align: center;           /* Ensure text is centered */
+    gap: 20px;                    /* Adds space between elements (if any) */
 }
 
 .site-title-text {
     font-size: 35px;
     font-family: "Arial Black", sans-serif;
+    line-height: 1;               /* Ensures the line height doesn't affect vertical alignment */
 }
-

@@ -13,7 +13,7 @@
 .input-field {
     flex-grow: 1; /* The input field will take the remaining space */
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #d2d2d2;
     border-radius: 5px;
     box-sizing: border-box;
 }
