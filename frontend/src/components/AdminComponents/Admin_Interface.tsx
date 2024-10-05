@@ -34,7 +34,7 @@ const Admin_Interface: React.FC = () => {
 
 		console.log(jsonString);
 		
-		axios.post('/backend-endpoint', jsonString)
+		axios.post('http://localhost:8000/access/create_entry_admin/', formData)
 			.catch(error => {
 				console.error('Error:', error)
 			});
@@ -54,13 +54,13 @@ const Admin_Interface: React.FC = () => {
 
                 console.log(jsonString);
 
-                axios.delete('/backend-endpoint', { data: jsonString })
+                axios.delete('http://localhost:8000/access/delete_entry/', {data: formData})
                         .catch(error => {
                                 console.error('Error:', error)
                         });
         };
 
-        // Send the JSON file for Create Entry Admin
+        // Send the JSON file for POP
         const handlePOPSubmit = (event: React.FormEvent<HTMLFormElement>) => {
                 event.preventDefault(); // prevents the page from reloading (except it still reloads?)
                 const formData = {
@@ -74,11 +74,32 @@ const Admin_Interface: React.FC = () => {
 
                 console.log(jsonString);
 
-                axios.put('/backend-endpoint', jsonString)
+                axios.put('http://127.0.0.1:8000/access/pop/', formData)
                         .catch(error => {
                                 console.error('Error:', error)
                         });
         };
+
+        // Send the JSON file for clear db
+        const handleCLEARDBSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault(); // prevents the page from reloading (except it still reloads?)
+                const formData = {
+                        password: password,
+                        name: name,
+                        song: song,
+                        delOrAdd: location
+                };
+                console.log(password);
+                const jsonString = JSON.stringify(formData);
+
+                console.log(jsonString);
+
+                axios.put('http://127.0.0.1:8000/access/clear_db/', formData)
+                        .catch(error => {
+                                console.error('Error:', error)
+                        });
+        };
+
 
 	return (
 	<div>
@@ -166,7 +187,7 @@ const Admin_Interface: React.FC = () => {
                                 <div className="node_title">
                                         Clear Database
                                 </div>
-				<form onSubmit={handlePOPSubmit}>
+				<form onSubmit={handleCLEARDBSubmit}>
 				<button>Clear</button>
 				</form>
                         </h3>
