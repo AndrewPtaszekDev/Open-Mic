@@ -1,19 +1,20 @@
 import './Admin.css';
 // import React from 'react';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PasswordContext } from './Password_Context' 
 
 const Admin: React.FC = () => {
-	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
+	const { password, setPassword } = useContext(PasswordContext);
 	
 	const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		event.preventDefault();
 		setPassword(event.target.value);
 	};
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log('Password:', password);
 		navigate('/admin-interface')
 	};
 	return (
