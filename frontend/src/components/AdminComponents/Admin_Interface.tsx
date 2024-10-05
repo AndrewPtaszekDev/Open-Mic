@@ -103,10 +103,13 @@ const Admin_Interface: React.FC = () => {
 
 	return (
 	<div>
-		<h1>Admin Interface</h1>
-
+		<h1>
+			<div className="admin_title">
+				Admin Interface
+			</div>
+		</h1>
 		{/* Create Entry Admin */}
-		<div className="border">
+		<div className="admin_border">
 			{/* Three input boxs with a submit button */}
 			<h3>
 				<div className="node_title">
@@ -146,7 +149,7 @@ const Admin_Interface: React.FC = () => {
 		</div>
 	
 	        {/* Pop */}
-	        <div className="border">
+	        <div className="admin_border">
 			{/* Just a 'pop' button */}
                         <h3>
                                 <div className="node_title">
@@ -159,7 +162,7 @@ const Admin_Interface: React.FC = () => {
 	        </div>
 
 	        {/* Delete */}
-	        <div className="border">
+	        <div className="admin_border">
 			{/* Input box for song name and submit button*/}
                         <h3>
                                 <div className="node_title">
@@ -181,7 +184,7 @@ const Admin_Interface: React.FC = () => {
 		</div>
 
 	        {/* Clear Database */}
-	        <div className="border">
+	        <div className="admin_border">
 			{/* Single Clear Button with a verification */}
                         <h3>
                                 <div className="node_title">
