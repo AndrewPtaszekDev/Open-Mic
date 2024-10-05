@@ -10,6 +10,7 @@ import NavMenu from './components/NavBarComponents/NavMenu';
 import Admin_Interface from "./components/AdminComponents/Admin_Interface";
 import Club from "./components/ClubComponents/Club";
 import About from "./components/AboutComponents/About";
+import { PasswordContext } from './components/AdminComponents/Password_Context' // access password site wide
 
 const App: React.FC = () => {
   const names = [ 'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson',
@@ -17,7 +18,10 @@ const App: React.FC = () => {
   'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson'];
   // Names for banner stored here
 
+  const [password, setPassword] = useState('');
+
   return (
+    <PasswordContext.Provider value={{ password, setPassword }}>
     <Router>
         <div/>
         {/* Scrolling Banner */}
@@ -36,6 +40,7 @@ const App: React.FC = () => {
         </Routes>
         </div>
     </Router>
+    </PasswordContext.Provider>
   );
 };
 
