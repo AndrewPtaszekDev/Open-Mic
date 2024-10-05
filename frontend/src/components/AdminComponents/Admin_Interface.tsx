@@ -8,6 +8,7 @@ const Admin_Interface: React.FC = () => {
 	const [name, setName] = useState('');
 	const [song, setSong] = useState('');
 	const [location, setLocation] = useState('');
+	const [delLocation, setDelLocation] = useState('');
 	
 	// functions for handling input for backend call
         const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,6 +20,9 @@ const Admin_Interface: React.FC = () => {
         const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                 setLocation(event.target.value);
         };
+	const handleDelLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setDelLocation(event.target.value);
+	};
 
 	// Send the JSON file for Create Entry Admin
         const handleCEASubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -45,9 +49,9 @@ const Admin_Interface: React.FC = () => {
                 event.preventDefault(); // prevents the page from reloading (except it still reloads?)
                 const formData = {
                         password: password,
-                        name: name,
-                        song: song,
-                        delOrAdd: location
+                        name: "a",
+                        song: "a",
+                        delOrAdd: delLocation
                 };
                 console.log(password);
                 const jsonString = JSON.stringify(formData);
@@ -65,9 +69,9 @@ const Admin_Interface: React.FC = () => {
                 event.preventDefault(); // prevents the page from reloading (except it still reloads?)
                 const formData = {
                         password: password,
-                        name: name,
-                        song: song,
-                        delOrAdd: location
+                        name: "a",
+                        song: "a",
+                        delOrAdd: "a"
                 };
                 console.log(password);
                 const jsonString = JSON.stringify(formData);
@@ -85,9 +89,9 @@ const Admin_Interface: React.FC = () => {
                 event.preventDefault(); // prevents the page from reloading (except it still reloads?)
                 const formData = {
                         password: password,
-                        name: name,
-                        song: song,
-                        delOrAdd: location
+                        name: "a",
+                        song: "a",
+                        delOrAdd: "a"
                 };
                 console.log(password);
                 const jsonString = JSON.stringify(formData);
@@ -170,13 +174,13 @@ const Admin_Interface: React.FC = () => {
 				</div>
                         </h3>
 			<form onSubmit={handleDELETESubmit}>
-				<label>Song Name</label>
+				<label>Location (song name)</label>
 				<br></br>
 				<input
                                         id="song_name"
                                         name="song_name"
-                                        value={song}
-                                        onChange={handleSongChange}
+                                        value={delLocation}
+                                        onChange={handleDelLocationChange}
                                         required/>
 				<br></br>
 				<button>Submit</button>
