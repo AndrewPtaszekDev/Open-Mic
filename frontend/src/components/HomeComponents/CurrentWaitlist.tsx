@@ -1,27 +1,15 @@
 import './CurrentWaitlist.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import UpcomingSong from './UpcomingSong';
-import axios from 'axios';
+import {WaitlistItem} from "./Home";
 
-// Define the expected shape of data
-interface WaitlistItem {
-  name: string;
-  song: string;
+
+interface fetchDataFunction {
+    fetchData: () => void;
+    data: WaitlistItem[];
 }
 
-const CurrentWaitlist: React.FC = () => {
-  const [data, setData] = useState<WaitlistItem[]>([]); // Use an array of objects for the waitlist data
-
-  // Function to fetch data from the backend
-  const fetchData = () => {
-    axios.get('http://127.0.0.1:8000/api/get_all_waitlists/')
-      .then((response) => {
-        setData(response.data); // Assuming response.data is an array of {name, song} objects
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  };
+const CurrentWaitlist: React.FC<fetchDataFunction> = ({fetchData, data}) => {
 
   useEffect(() => {
     // Initial fetch when the component mounts

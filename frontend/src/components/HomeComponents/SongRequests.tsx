@@ -3,7 +3,10 @@ import React, { useState } from 'react';
 import InputField from "./InputField";
 import WaitlistSubmitButton from "./WaitlistSubmitButton";
 
-const SongRequests: React.FC = () => {
+interface fetchDataFunction {
+    fetchData: () => void;
+}
+const SongRequests: React.FC<fetchDataFunction> = ({fetchData}) => {
 
   const [fullName, setFullName] = useState<string>('');
   const [songName, setSongName] = useState<string>('');
@@ -17,7 +20,7 @@ const SongRequests: React.FC = () => {
       <div className="input-group"> {/* Another group for the next field */}
         <InputField fieldPrompt='Song Name' setFieldContent={setSongName} />
       </div>
-      <WaitlistSubmitButton fullName={fullName.toString()} songName={songName.toString()} />
+      <WaitlistSubmitButton fullName={fullName.toString()} songName={songName.toString()}  fetchData={fetchData}/>
     </div>
   );
 };

@@ -4,10 +4,11 @@ import axios from "axios";
 
 interface WaitlistSubmitButton {
     fullName: string;
-    songName: string
+    songName: string;
+    fetchData: () => any;
 }
 
-const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songName }) => {
+const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songName, fetchData }) => {
 
     const [message, setMessage] = useState<string>('');
     const [response, setResponse] = useState<string | null>(null);
@@ -26,9 +27,14 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
 
             // Handle success response
             setResponse(res.data);
+            if(res.status == 201){
+                fetchData();
+                alert("Successfully added song!")
+            }
         } catch (error) {
             // Handle error response
             console.error('Error sending message:', error);
+            alert("An error has occurred!")
         }
     };
 
