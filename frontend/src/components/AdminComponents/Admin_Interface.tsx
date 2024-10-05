@@ -20,16 +20,16 @@ const Admin_Interface: React.FC = () => {
                 setLocation(event.target.value);
         };
 
-	// Send the JSON file to the backend
-        const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	// Send the JSON file for Create Entry Admin
+        const handleCEASubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault(); // prevents the page from reloading (except it still reloads?)
 		const formData = {
-			// password: password,
+			password: password,
 			name: name,
 			song: song,
 			delOrAdd: location
 		};
-
+		console.log(password);
 		const jsonString = JSON.stringify(formData);
 
 		console.log(jsonString);
@@ -38,6 +38,46 @@ const Admin_Interface: React.FC = () => {
 			.catch(error => {
 				console.error('Error:', error)
 			});
+        };
+
+        // Send the JSON file for DELETE
+        const handleDELETESubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault(); // prevents the page from reloading (except it still reloads?)
+                const formData = {
+                        password: password,
+                        name: name,
+                        song: song,
+                        delOrAdd: location
+                };
+                console.log(password);
+                const jsonString = JSON.stringify(formData);
+
+                console.log(jsonString);
+
+                axios.delete('/backend-endpoint', { data: jsonString })
+                        .catch(error => {
+                                console.error('Error:', error)
+                        });
+        };
+
+        // Send the JSON file for Create Entry Admin
+        const handlePOPSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault(); // prevents the page from reloading (except it still reloads?)
+                const formData = {
+                        password: password,
+                        name: name,
+                        song: song,
+                        delOrAdd: location
+                };
+                console.log(password);
+                const jsonString = JSON.stringify(formData);
+
+                console.log(jsonString);
+
+                axios.put('/backend-endpoint', jsonString)
+                        .catch(error => {
+                                console.error('Error:', error)
+                        });
         };
 
 	return (
@@ -52,18 +92,33 @@ const Admin_Interface: React.FC = () => {
 					Create Entry Admin
 				</div>
 			</h3>
-			<form>
+			<form onSubmit={handleCEASubmit}>
 				<label>Name</label>
 				<br></br>
-				<input></input>
+				<input type="name"
+					id="name"
+					name="name"
+					value={name}
+					onChange={handleNameChange}
+					required/>
 				<br></br>
 				<label>Song Name</label>
 				<br></br>
-				<input></input>
+				<input
+                                        id="song_name"
+                                        name="song_name"
+                                        value={song}
+                                        onChange={handleSongChange}
+                                        required/>  
 				<br></br>
 				<label>Location</label>
 				<br></br>
-				<input></input>
+				<input
+                                        id="delOrAdd"
+                                        name="delOrAdd"
+                                        value={location}
+                                        onChange={handleLocationChange}
+                                        required/>
 				<br></br>
 				<button>Submit</button>
 			</form>
@@ -76,6 +131,9 @@ const Admin_Interface: React.FC = () => {
                                 <div className="node_title">
                                         Pop
                                 </div>
+				<form onSubmit={handlePOPSubmit}>
+				<button>Pop</button>
+				</form>
                         </h3>
 	        </div>
 
@@ -87,6 +145,18 @@ const Admin_Interface: React.FC = () => {
                                         Delete Entry
 				</div>
                         </h3>
+			<form onSubmit={handleDELETESubmit}>
+				<label>Song Name</label>
+				<br></br>
+				<input
+                                        id="song_name"
+                                        name="song_name"
+                                        value={song}
+                                        onChange={handleSongChange}
+                                        required/>
+				<br></br>
+				<button>Submit</button>
+			</form>
 		</div>
 
 	        {/* Clear Database */}
@@ -96,8 +166,11 @@ const Admin_Interface: React.FC = () => {
                                 <div className="node_title">
                                         Clear Database
                                 </div>
+				<form onSubmit={handlePOPSubmit}>
+				<button>Clear</button>
+				</form>
                         </h3>
-		</div>
+		</div>	
 	</div>
 	);
 };
