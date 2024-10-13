@@ -14,7 +14,11 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ names }) => {
             <div className="banner-content">
                 {namesToDisplay.map((name, index) => (
                     <React.Fragment key={index}>
-                        <span className="name">{name}</span>
+                        <span 
+                            className={`name ${name === "Our Dev Team" ? 'bold' : ''}`}
+                        >
+                            {name} 
+                        </span>
                         {'/'}
                         {index < names.length - 1 &&  <span className="separator"></span>}
                     </React.Fragment>
