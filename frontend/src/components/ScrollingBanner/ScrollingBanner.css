@@ -35,3 +35,8 @@
     margin: 0 14px; /* Add margin for spacing between names */
     display: inline-block; /* Ensure span acts like an inline-block */
 }
+
+.bold {
+    font-weight: bold;
+    font-size: 12px;
+}
