@@ -8,11 +8,10 @@
     color: #1d1d1d;
     font-family: Arial Black;
     overflow: hidden;
-    padding: 3px 0;
+    padding: .5em 0;
     z-index: 1000;
-    height: 20px; /* Set a fixed height for the banner */
+    height: 2em; /* Set a fixed height for the banner */
     font-size: 10px;
-    background-color: #eaeaea;
 }
 
 .banner-content {
