@@ -45,5 +45,5 @@ img {
 
 .site-title {
   flex-grow: 1; /* Make title take available space */
-  font-size: 24px; /* Example font size */
+  font-size: 20em; /* Example font size */
 }
