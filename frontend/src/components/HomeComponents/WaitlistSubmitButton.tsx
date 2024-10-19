@@ -33,8 +33,14 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
             }
         } catch (error) {
             // Handle error response
-            console.error('Error sending message:', error);
-            alert("An error has occurred!")
+		if (fullName == "" || songName == "")
+			alert("Please fill out the name and song section");
+		else if (fullName.length >= 100  || songName.length >= 100)
+			alert("Max character count is 100 please reduce :)");
+		else {
+			console.error('Error sending message:', error);
+			alert("An error has occurred!")
+		}
         }
     };
 
