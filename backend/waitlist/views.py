@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import WaitlistModel
 from .serializers import WaitlistSerializer, AccessSerializer
+from .utils import get_password
 # Create your views here.
-admin_password = "JazzHouse69" # FYI: Change this before putting on github, use .env variables in production
 
 @api_view(['POST'])
 def create_entry(request):
@@ -41,7 +41,7 @@ def create_entry_admin(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if not serializer.data["password"] == admin_password:
+    if not serializer.data["password"] == get_password():
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
     entry_json = {
@@ -67,7 +67,7 @@ def delete_entry(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if not serializer.data["password"] == admin_password:
+    if not serializer.data["password"] == get_password():
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
     to_delete = WaitlistModel.objects.filter(song=serializer.validated_data['delOrAdd']).first()
@@ -84,7 +84,7 @@ def clear_db(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if not serializer.data["password"] == admin_password:
+    if not serializer.data["password"] == get_password():
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
     WaitlistModel.objects.all().delete()
@@ -98,7 +98,7 @@ def pop(request):
     serializer = AccessSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if not serializer.data["password"] == admin_password:
+    if not serializer.data["password"] == get_password():
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
     
     if WaitlistModel.objects.count() == 0:
