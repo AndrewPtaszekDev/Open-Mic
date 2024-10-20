@@ -20,18 +20,18 @@
   
   .menu-nav button {
     background: none;
-    color: #1d1d1d; /* Text color */
+    color: #F5EFE6; /* Text color */
     border: none;
     font-size: 20px;
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.7s ease;
-    font-family: "Arial", sans-serif;
+    font-family: "Arial Black", sans-serif;
 
   }
   
   .menu-nav button.active {
-    color: #1423e7; /* Text color for the active item */
+    color: #3C91E6; /* Text color for the active item */
     transition: color 0.7s ease, color 0.7s ease; /* Smooth transition for active state */
   }
   

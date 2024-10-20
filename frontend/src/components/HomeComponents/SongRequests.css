@@ -3,21 +3,22 @@
     padding: 20px;
     margin: 20px auto;
     max-width: 500px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: #16001E;
     text-align: left;
 }
 
 .title {
     font-size: 1.6em;
     font-weight: bold;
-    margin-bottom: 15px;
-    color: #7640f3;
+    margin-bottom: 5%;
+    color: #FF6B6B;
 }
 
 .input-group {
     display: flex; /* Flexbox to align label and input horizontally */
     align-items: center;
     margin-bottom: 15px;
+    color: #F5EFE6;
 }
 
 .input-field {
@@ -35,7 +36,14 @@
 .input-field input {
     flex-grow: 1; /* Input takes up the rest of the space */
     padding: 10px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid white;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.Waitlist-Submission-Button {
+    display: flex;
+    align-items: right;
+    padding: .7em;
+    border-radius: 10px;
 }
