@@ -29,4 +29,5 @@ yarn-error.log*
 /backend/tasks/
 /backend/db.sqlite3
 
-__pycache__/
+**/__pycache__/
+*.txt
