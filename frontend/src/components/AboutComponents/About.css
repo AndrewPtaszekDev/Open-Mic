@@ -1,0 +1,27 @@
+.aboutclubtitle {
+    margin: 0 auto;
+    color: #3C91E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4em;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Arial Black", sans-serif;
+}
+
+.aboutcontainer{
+    border-radius: 12px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 1.5em;
+    max-width: 90%;
+    background-color: #16001E;
+    text-align: left;
+}
+
+.abouttext{
+    text-align: center;
+    color: #F5EFE6;
+    line-height: 1.8;
+}
