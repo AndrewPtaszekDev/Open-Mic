@@ -34,7 +34,7 @@ const Home: React.FC = () => {
              <SongRequests fetchData={fetchData}/>
           </div>
           <div className='border'>
-              <div>Songs Up Next:</div>
+              <div className= 'upnexttitle'>Songs Up Next</div>
               <CurrentWaitlist fetchData={fetchData} data={data}/>
           </div>
       </div>

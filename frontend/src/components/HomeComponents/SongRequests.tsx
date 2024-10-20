@@ -20,7 +20,9 @@ const SongRequests: React.FC<fetchDataFunction> = ({fetchData}) => {
       <div className="input-group"> {/* Another group for the next field */}
         <InputField fieldPrompt='Song Name' setFieldContent={setSongName} />
       </div>
-      <WaitlistSubmitButton fullName={fullName.toString()} songName={songName.toString()}  fetchData={fetchData}/>
+      <div className="Waitlist-Submission-Button">
+        <WaitlistSubmitButton fullName={fullName.toString()} songName={songName.toString()}  fetchData={fetchData}/>
+      </div>
     </div>
   );
 };
