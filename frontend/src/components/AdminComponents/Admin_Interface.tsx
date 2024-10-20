@@ -41,6 +41,8 @@ const Admin_Interface: React.FC = () => {
 		axios.post('http://localhost:8000/access/create_entry_admin/', formData)
 			.catch(error => {
 				console.error('Error:', error)
+				if (password == "")
+					alert("Missing Password");
 			});
         };
 
@@ -61,6 +63,9 @@ const Admin_Interface: React.FC = () => {
                 axios.delete('http://localhost:8000/access/delete_entry/', {data: formData})
                         .catch(error => {
                                 console.error('Error:', error)
+				if (password == "")
+					alert("Missing Password");
+				
                         });
         };
 
@@ -81,6 +86,8 @@ const Admin_Interface: React.FC = () => {
                 axios.put('http://127.0.0.1:8000/access/pop/', formData)
                         .catch(error => {
                                 console.error('Error:', error)
+				if (password == "")
+					alert("Missing Password");
                         });
         };
 
@@ -101,6 +108,8 @@ const Admin_Interface: React.FC = () => {
                 axios.put('http://127.0.0.1:8000/access/clear_db/', formData)
                         .catch(error => {
                                 console.error('Error:', error)
+				if (password == "")
+					alert("Missing Password");
                         });
         };
 
