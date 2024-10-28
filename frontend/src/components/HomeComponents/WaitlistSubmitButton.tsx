@@ -1,6 +1,8 @@
 import './WaitlistSubmitButton.css';
 import React, {useState} from 'react';
 import axios from "axios";
+import {DEVELOPMENT_MODE, IP, ALLOW_SONG_REQUESTS, cookies} from "../../App";
+
 
 interface WaitlistSubmitButton {
     fullName: string;
@@ -13,10 +15,21 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
     const [message, setMessage] = useState<string>('');
     const [response, setResponse] = useState<string | null>(null);
     const handleSubmit = async (e: React.FormEvent) => {
+        if(!ALLOW_SONG_REQUESTS) {
+            alert("Hello, Open Mic Night has closed song requests.")
+            return;
+        }
+
+
+
         // setMessage(getJSON(fullName, songName))
         e.preventDefault();
         try {
-            const res = await axios.post('http://127.0.0.1:8000/api/create-entry/', {
+            let url = 'http://localhost:8000/api/create-entry/';
+            if(!DEVELOPMENT_MODE){
+                url = 'http://'+IP+":8000/api/create-entry/";
+            }
+            const res = await axios.post(url, {
                 name: fullName,
                 song: songName
             }, {

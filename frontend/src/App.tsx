@@ -8,12 +8,21 @@ import Admin from "./components/AdminComponents/Admin";
 import Admin_Interface from "./components/AdminComponents/Admin_Interface";
 import Club from "./components/ClubComponents/Club";
 import About from "./components/AboutComponents/About";
-import { PasswordContext } from './components/AdminComponents/Password_Context'; // Access password site wide
+import { PasswordContext } from './components/AdminComponents/Password_Context';
+import Cookies from "universal-cookie";
+
+export const IP = "34.74.108.77";
+export const DEVELOPMENT_MODE = true;
+
+export const ALLOW_SONG_REQUESTS = true
+
+export const cookies = new Cookies();
+
 
 const App: React.FC = () => {
   const names = [
     'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson','Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson','Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson'
-  ]; // Names for the banne
+  ]; // Names for the banner
 
   const [password, setPassword] = useState('');
 
