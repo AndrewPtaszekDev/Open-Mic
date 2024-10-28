@@ -56,8 +56,8 @@ MIDDLEWARE = [
 # CORS configuration
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "34.74.108.77:3000",
-    "34.74.108.77:8000"
+    "http://34.74.108.77:3000",
+    "http://34.74.108.77:8000"
 ]
 
 ROOT_URLCONF = 'backend.urls'
