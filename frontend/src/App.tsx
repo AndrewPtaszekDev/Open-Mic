@@ -12,7 +12,7 @@ import { PasswordContext } from './components/AdminComponents/Password_Context';
 import Cookies from "universal-cookie";
 
 export const IP = "34.74.108.77";
-export const DEVELOPMENT_MODE = true;
+export const DEVELOPMENT_MODE = false;
 
 export const ALLOW_SONG_REQUESTS = true
 
