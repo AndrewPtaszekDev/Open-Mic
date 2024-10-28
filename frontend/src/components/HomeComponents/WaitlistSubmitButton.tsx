@@ -1,7 +1,7 @@
 import './WaitlistSubmitButton.css';
 import React, {useState} from 'react';
 import axios from "axios";
-import {DEVELOPMENT_MODE, IP, ALLOW_SONG_REQUESTS, cookies} from "../../App";
+import {DEVELOPMENT_MODE, IP, ALLOW_SONG_REQUESTS} from "../../App";
 
 interface WaitlistSubmitButton {
     fullName: string;
