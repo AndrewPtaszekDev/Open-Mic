@@ -15,6 +15,9 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
     const handleSubmit = async (e: React.FormEvent) => {
         // setMessage(getJSON(fullName, songName))
         e.preventDefault();
+	
+	var isSubmitting = true;
+	
         try {
             const res = await axios.post('http://127.0.0.1:8000/api/create-entry/', {
                 name: fullName,
@@ -29,7 +32,17 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
             setResponse(res.data);
             if(res.status == 201){
                 fetchData();
-                alert("Successfully added song!")
+                alert("Successfully added song!");
+
+	        // Disable the submit button and set a timer to re-enable it
+	        const submit_button = document.getElementById('submit-button') as HTMLButtonElement;
+		if (submit_button) submit_button.disabled = true;		
+
+	        setTimeout(() => {
+                isSubmitting = false;
+                if (submit_button) submit_button.disabled = false;
+            }, 5000); // Set timeout duration (e.g., 5 seconds)
+
             }
         } catch (error) {
             // Handle error response
@@ -41,12 +54,19 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
 			console.error('Error sending message:', error);
 			alert("An error has occurred!")
 		}
+
+
+		isSubmitting = false;
+		const submit_button = document.getElementById('submit-button') as HTMLButtonElement;
+		if (submit_button) submit_button.disabled = false;
+    
+
         }
     };
 
   return (
       <div>
-          <button onClick={handleSubmit}>Send!</button>
+          <button id="submit-button" onClick={handleSubmit}>Send!</button>
       </div>
   );
 };
