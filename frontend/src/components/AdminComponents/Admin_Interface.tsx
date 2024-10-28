@@ -39,8 +39,14 @@ const Admin_Interface: React.FC = () => {
 		console.log(jsonString);
 		
 		axios.post('http://localhost:8000/access/create_entry_admin/', formData)
+			.then(response => {
+				console.log("Success: ", response);
+				alert("Inserted Entry");
+			})
 			.catch(error => {
 				console.error('Error:', error)
+				if (error.response.status === 401)
+					alert("Unauthorized: Check password");
 				if (password == "")
 					alert("Missing Password");
 			});
@@ -61,8 +67,14 @@ const Admin_Interface: React.FC = () => {
                 console.log(jsonString);
 
                 axios.delete('http://localhost:8000/access/delete_entry/', {data: formData})
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Deleted Entry");
+                        })
                         .catch(error => {
-                                console.error('Error:', error)
+                                console.error('Error:', error);
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
 				if (password == "")
 					alert("Missing Password");
 				
@@ -84,8 +96,14 @@ const Admin_Interface: React.FC = () => {
                 console.log(jsonString);
 
                 axios.put('http://127.0.0.1:8000/access/pop/', formData)
-                        .catch(error => {
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Popped Top Entry");
+                        })                        
+			.catch(error => {
                                 console.error('Error:', error)
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
 				if (password == "")
 					alert("Missing Password");
                         });
@@ -106,8 +124,14 @@ const Admin_Interface: React.FC = () => {
                 console.log(jsonString);
 
                 axios.put('http://127.0.0.1:8000/access/clear_db/', formData)
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Cleared Database");
+                        })
                         .catch(error => {
                                 console.error('Error:', error)
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
 				if (password == "")
 					alert("Missing Password");
                         });
