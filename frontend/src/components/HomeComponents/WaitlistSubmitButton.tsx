@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {DEVELOPMENT_MODE, IP, ALLOW_SONG_REQUESTS, cookies} from "../../App";
 
-
 interface WaitlistSubmitButton {
     fullName: string;
     songName: string;
@@ -79,7 +78,7 @@ const WaitlistSubmitButton: React.FC<WaitlistSubmitButton> = ({ fullName, songNa
 
   return (
       <div>
-          <button id="submit-button" onClick={handleSubmit}>Send!</button>
+          <button id="submit-button" className="submit-button" onClick={handleSubmit}>Send!</button>
       </div>
   );
 };
