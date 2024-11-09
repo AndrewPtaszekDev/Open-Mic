@@ -1,7 +1,6 @@
 .scrollable-container {
   height: 30vh;  /* Set a fixed height for the container */
   width: 100%;   /* Optionally, set a fixed width */
-  overflow-y: auto;  /* Enable vertical scrolling */
   padding: 10px;
   box-sizing: border-box;
 }
@@ -16,4 +15,5 @@
   padding: 8px;
   margin-bottom: 5px;
   border-radius: 4px;
+  color: #F5EFE6;
 }

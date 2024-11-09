@@ -25,7 +25,7 @@ const CurrentWaitlist: React.FC<fetchDataFunction> = ({fetchData, data}) => {
   }, []); // Empty dependency array ensures this runs only once when the component mounts
 
   return (
-    <div className="scrollable-container">
+    // <div className="scrollable-container">
       <ul className="scrollable-list">
         {data.map((item, index) => (
           <li key={index}>
@@ -35,7 +35,7 @@ const CurrentWaitlist: React.FC<fetchDataFunction> = ({fetchData, data}) => {
             </li>
         ))}
       </ul>
-    </div>
+    // </div>
   );
 };
 

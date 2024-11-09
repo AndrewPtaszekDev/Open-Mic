@@ -4,6 +4,7 @@ import SongRequests from "./SongRequests";
 import CurrentWaitlist from "./CurrentWaitlist";
 import SiteTitle from './SiteTitle';
 import axios from "axios";
+import {DEVELOPMENT_MODE, IP} from "../../App";
 
 
 // Define the expected shape of data
@@ -18,7 +19,12 @@ const Home: React.FC = () => {
   const [data, setData] = useState<WaitlistItem[]>([]); // Use an array of objects for the waitlist data
     // Function to fetch data from the backend
     const fetchData = () => {
-        axios.get('http://127.0.0.1:8000/api/get_all_waitlists/')
+        let url = 'http://localhost:8000/api/get_all_waitlists/';
+        if(!DEVELOPMENT_MODE){
+            url = 'http://'+IP+":8000/api/get_all_waitlists/";
+        }
+
+        axios.get(url)
             .then((response) => {
                 setData(response.data); // Assuming response.data is an array of {name, song} objects
             })
@@ -34,7 +40,7 @@ const Home: React.FC = () => {
              <SongRequests fetchData={fetchData}/>
           </div>
           <div className='border'>
-              <div>Songs Up Next:</div>
+              <div className= 'upnexttitle'>Songs Up Next</div>
               <CurrentWaitlist fetchData={fetchData} data={data}/>
           </div>
       </div>

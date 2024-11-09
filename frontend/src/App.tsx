@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from "./components/HomeComponents/Home";
@@ -8,7 +7,13 @@ import Admin from "./components/AdminComponents/Admin";
 import Admin_Interface from "./components/AdminComponents/Admin_Interface";
 import Club from "./components/ClubComponents/Club";
 import About from "./components/AboutComponents/About";
-import { PasswordContext } from './components/AdminComponents/Password_Context'; // Access password site wide
+import { PasswordContext } from './components/AdminComponents/Password_Context';
+
+export const IP = "34.74.108.77";
+export const DEVELOPMENT_MODE = false;
+
+export const ALLOW_SONG_REQUESTS = true
+
 
 const App: React.FC = () => {
   const names = [

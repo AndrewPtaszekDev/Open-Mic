@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.74.108.77', '34.74.108.77:8000', '34.74.108.77:3000']
 
 
 # Application definition
@@ -56,6 +56,8 @@ MIDDLEWARE = [
 # CORS configuration
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://34.74.108.77:3000",
+    "http://34.74.108.77:8000"
 ]
 
 ROOT_URLCONF = 'backend.urls'

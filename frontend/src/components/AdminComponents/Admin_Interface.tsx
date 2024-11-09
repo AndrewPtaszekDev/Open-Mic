@@ -2,6 +2,7 @@ import "./Admin_Interface.css";
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { PasswordContext } from './Password_Context'
+import {IP, DEVELOPMENT_MODE} from "../../App";
 
 const Admin_Interface: React.FC = () => {
 	const { password } = useContext(PasswordContext); 
@@ -37,10 +38,23 @@ const Admin_Interface: React.FC = () => {
 		const jsonString = JSON.stringify(formData);
 
 		console.log(jsonString);
-		
-		axios.post('http://localhost:8000/access/create_entry_admin/', formData)
+
+		let url = 'http://localhost:8000/access/create_entry_admin/';
+		if(!DEVELOPMENT_MODE){
+			url = 'http://'+IP+":8000/access/create_entry_admin/";
+		}
+
+		axios.post(url, formData)
+			.then(response => {
+				console.log("Success: ", response);
+				alert("Inserted Entry");
+			})
 			.catch(error => {
 				console.error('Error:', error)
+				if (error.response.status === 401)
+					alert("Unauthorized: Check password");
+				if (password == "")
+					alert("Missing Password");
 			});
         };
 
@@ -58,9 +72,23 @@ const Admin_Interface: React.FC = () => {
 
                 console.log(jsonString);
 
-                axios.delete('http://localhost:8000/access/delete_entry/', {data: formData})
+				let url = 'http://localhost:8000/access/delete_entry/';
+				if(!DEVELOPMENT_MODE){
+					url = 'http://'+IP+":8000/access/delete_entry/";
+				}
+
+                axios.delete(url, {data: formData})
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Deleted Entry");
+                        })
                         .catch(error => {
-                                console.error('Error:', error)
+                                console.error('Error:', error);
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
+				if (password == "")
+					alert("Missing Password");
+				
                         });
         };
 
@@ -78,9 +106,22 @@ const Admin_Interface: React.FC = () => {
 
                 console.log(jsonString);
 
-                axios.put('http://127.0.0.1:8000/access/pop/', formData)
-                        .catch(error => {
+				let url = 'http://localhost:8000/access/pop/';
+				if(!DEVELOPMENT_MODE){
+					url = 'http://'+IP+":8000/access/pop/";
+				}
+
+                axios.put(url, formData)
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Popped Top Entry");
+                        })                        
+			.catch(error => {
                                 console.error('Error:', error)
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
+				if (password == "")
+					alert("Missing Password");
                         });
         };
 
@@ -98,9 +139,22 @@ const Admin_Interface: React.FC = () => {
 
                 console.log(jsonString);
 
-                axios.put('http://127.0.0.1:8000/access/clear_db/', formData)
+				let url = 'http://localhost:8000/access/clear_db/';
+				if(!DEVELOPMENT_MODE){
+					url = 'http://'+IP+":8000/access/clear_db/";
+				}
+
+                axios.put(url, formData)
+                        .then(response => {
+                                console.log("Success: ", response);
+                                alert("Cleared Database");
+                        })
                         .catch(error => {
                                 console.error('Error:', error)
+                                if (error.response.status === 401)
+                                        alert("Unauthorized: Check password");
+				if (password == "")
+					alert("Missing Password");
                         });
         };
 

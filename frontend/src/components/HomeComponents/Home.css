@@ -5,3 +5,13 @@
     /*height: 50vh;             !* Make navbar height 100% of the viewport height (optional if you want full screen centering) *!*/
     /*gap: 40px;                 !* Adds some space between the buttons *!*/
 }
+
+.upnexttitle {
+    padding: .7em;
+    color: #FF6B6B;
+    font-size: 1.6em;
+    font-weight: bold;
+    /*outline: #16001E, 5px;*/
+    margin: 0 auto;
+    text-align: center;
+}

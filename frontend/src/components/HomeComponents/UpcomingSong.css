@@ -1,5 +1,5 @@
 .upcoming-song {
-    background-color: #f3f3f3; /* Light background for the song container */
+    background-color: #16001E; /* Light background for the song container */
     border-radius: 10px; /* Rounded corners for the container */
     padding: 15px; /* Padding inside the container */
     margin: 10px auto; /* Centering the component and adding spacing */
@@ -9,19 +9,14 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-.upcoming-song:hover {
-    transform: translateY(-5px); /* Slight upward movement on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensified shadow on hover */
-}
-
 .upcoming-fullname {
     font-size: 1.5em; /* Larger font for the full name */
     font-weight: bold; /* Bold styling for emphasis */
-    color: #333; /* Darker color for the text */
+    color: white; /* Darker color for the text */
     margin-bottom: 10px; /* Spacing between full name and song name */
 }
 
 .upcoming-songname {
     font-size: 1.2em; /* Slightly smaller font for the song name */
-    color: #ffffff; /* Lighter gray color for contrast */
+    color: white; /* Lighter gray color for contrast */
 }

@@ -1,0 +1,10 @@
+.submit-button {
+    display: block;          /* Makes the button a block-level element, allowing width control */
+    padding: 10px;         /* Add padding for top and bottom */
+    border-radius: 12px;
+    background-color: #F5EFE6;
+    color: #16001E;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;      /* Center the text within the button */
+}
