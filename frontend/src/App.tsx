@@ -13,7 +13,7 @@ import { PasswordContext } from './components/AdminComponents/Password_Context';
 const App: React.FC = () => {
   const names = [
     'Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson','Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson','Our Dev Team', 'Andrew Ptaszek', 'Zane Wolfe', 'Colin Sadowitz', 'Michael Carlson'
-  ]; // Names for the banne
+  ]; // Names for the banner
 
   const [password, setPassword] = useState('');
 
