@@ -9,6 +9,8 @@
 venv/
 .venv/
 
+replace.txt
+
 # testing
 /coverage
 
