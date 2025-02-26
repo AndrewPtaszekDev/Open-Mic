@@ -1,19 +1,29 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height for vertical centering */
+}
+
 .input-field-container {
-    display: flex; /* Flexbox to align the prompt and input horizontally */
-    align-items: center; /* Align items vertically in the middle */
+    display: flex; /* Flexbox for horizontal alignment of prompt and input */
+    align-items: center; /* Center vertically within the container */
+    justify-content: center; /* Center horizontally if needed */
     margin-bottom: 15px; /* Space between input fields */
 }
 
 .input-field-prompt {
     font-weight: bold;
-    margin-right: 10px; /* Space between the prompt and input */
-    width: 120px; /* Fixed width for the prompt/label */
+    margin-right: 10px; /* Space between prompt and input field */
+    width: 120px; /* Fixed width for consistent alignment */
 }
 
 .input-field {
-    flex-grow: 1; /* The input field will take the remaining space */
+    flex-grow: 1; /* Takes remaining space */
     padding: 10px;
     border-color: white;
     border-radius: 5px;
     box-sizing: border-box;
+    max-width: 100%; /* Prevent overflow */
 }
